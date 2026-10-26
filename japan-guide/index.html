@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>来日手续清单 | 日本生活手续向导</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>🇯🇵 来日手续清单</h1><p>回答几个问题,生成属于你的衣食住行、保险、年金、税、永住手续清单</p></header>
+<main>
+  <section id="form" class="card">
+    <h2>1. 你的情况</h2>
+    <label>在留资格
+      <select id="status">
+        <option value="engineer">技术·人文知识·国际业务</option>
+        <option value="hsp">高度专门职(高度人才)</option>
+        <option value="business">经营·管理</option>
+        <option value="skilled">技能(特定技能/技能)</option>
+        <option value="intra">企业内转勤</option>
+        <option value="student">留学</option>
+        <option value="dependent">家族滞在</option>
+        <option value="spouse">日本人/永住者的配偶者</option>
+        <option value="permanent">永住者</option>
+        <option value="short">短期滞在</option>
+      </select></label>
+    <label>就业方式
+      <select id="employment">
+        <option value="employee">公司员工(含派遣)</option>
+        <option value="self">自营/自由职业</option>
+        <option value="none">学生/家属/暂无工作</option>
+      </select></label>
+    <label>年龄 <input id="age" type="number" min="0" max="100" value="30"></label>
+    <label>入境/搬入日本日期 <input id="arrival" type="date"></label>
+    <label>在留期限(选填) <input id="expiry" type="date"></label>
+    <label>长期计划
+      <select id="plan">
+        <option value="settle">长期定居/考虑永住</option>
+        <option value="temp">几年后回国</option>
+      </select></label>
+    <div class="checks">
+      <label><input type="checkbox" id="spouse"> 配偶同行/在日</label>
+      <label><input type="checkbox" id="children"> 有子女</label>
+      <label><input type="checkbox" id="drive"> 需要开车/有外国驾照</label>
+      <label><input type="checkbox" id="car"> 计划买车</label>
+    </div>
+    <button id="gen">生成我的清单</button>
+  </section>
+
+  <section id="result" hidden>
+    <div class="card">
+      <h2>2. 我的清单 <span id="progress"></span></h2>
+      <div class="bar"><div id="barfill"></div></div>
+      <div class="toolbar">
+        <input id="q" placeholder="搜索...">
+        <button id="print">打印/保存 PDF</button>
+        <button id="reset" class="ghost">清除进度</button>
+      </div>
+    </div>
+    <div id="list"></div>
+  </section>
+  <p class="disclaimer" id="disclaimer"></p>
+</main>
+<script src="data_core.js"></script>
+<script src="data_identity.js"></script>
+<script src="data_life.js"></script>
+<script src="data_money.js"></script>
+<script src="data_pr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
